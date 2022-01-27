@@ -10,6 +10,7 @@ public class Assignment4 {
         Scanner scanner=new Scanner(System.in);
         System.out.println("enter no of inputs");
         int inputs=scanner.nextInt();
+        System.out.println("enter all  the signup dates and current dates");
         while(inputs-->0)
         {
             String date1=scanner.next();

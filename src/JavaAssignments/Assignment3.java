@@ -1,38 +1,34 @@
 package JavaAssignments;
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.*;
 import java.util.*;
 public class Assignment3 {
 
-    public static void ping(String hostname,int numberOfPackets) throws IOException {
-        ArrayList<Double> timeList=new ArrayList<Double>();
-        ProcessBuilder builder=new ProcessBuilder();
-        builder.command("cmd.exe", "/c", "ping -n "+numberOfPackets+" "+hostname);
-        Process process=builder.start();
-        BufferedReader inputStream = new BufferedReader(
-                new InputStreamReader(process.getInputStream()));
-        String content;
-        System.out.println("time in ms");
-        while((content=inputStream.readLine())!=null)
+    private static long pingTime(String hostName)
+    {
+        try
         {
-            double time;
-            int index=content.indexOf("time=");
-            if(index!=-1) {
-                time=Double.parseDouble(content.substring(index + 5, content.length() - 9));
-                System.out.println(time);
-                timeList.add(time);
-            }
+            InetAddress address = InetAddress.getByName(hostName) ;
+            System.out.println("Now will ping the host with " + address);
+            long finish = 0;
+            long start = new GregorianCalendar().getTimeInMillis();
 
+            if (address.isReachable(5000)) {
+                finish = new GregorianCalendar().getTimeInMillis();
+                System.out.println("Ping Value is here : " + (finish - start + "ms"));
+                return (finish - start);
+            } else
+            {
+                System.out.println("The host that you wanted to access is NOT REACHABLE !! ");
+                return 0;
+            }
         }
-        inputStream = new BufferedReader(
-                new InputStreamReader(process.getErrorStream()));
-        while((content=inputStream.readLine())!=null)
+        catch (Exception e)
         {
-            System.out.println(content);
+            e.printStackTrace();
+            System.out.println("Exception Message is " + e.getMessage());
+            return -1 ;
         }
-        calculateMedian(timeList);
     }
     public static void calculateMedian(ArrayList<Double> list)
     {
@@ -57,9 +53,7 @@ public class Assignment3 {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Enter host name");
         String hostName=scanner.next();
-        System.out.println("Enter Number of packets");
-        int packets=scanner.nextInt();
-        ping(hostName,packets);
+        pingTime(hostName);
     }
 }
 
