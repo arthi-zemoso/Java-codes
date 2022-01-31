@@ -59,8 +59,7 @@ public class Assignment11 {
     }
     public static void main(String args[]) throws IOException {
         Assignment11 object=new Assignment11();
-        //args[0]->Inputfile
-        //args[1]->File to save the result
+        //args[0]->Inputfile  args[1]->File to save the result
         object.getFrequency(args[0]);
         object.savingResultsIntoFile(args[1]);
         object.readResultFromFile(args[1]);

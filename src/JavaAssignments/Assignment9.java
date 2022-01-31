@@ -17,7 +17,7 @@ public class Assignment9 {
         System.out.println("Enter the input string");
         Scanner sc=new Scanner(System.in);
         String sentence=sc.nextLine();
-        Pattern pattern =Pattern.compile("^[A-Z].*\\.");
+        Pattern pattern =Pattern.compile("^[A-Z].*[.]$");
         findPattern(pattern,sentence);
     }
 }
