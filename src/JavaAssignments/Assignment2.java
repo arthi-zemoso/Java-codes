@@ -9,7 +9,6 @@ public class Assignment2 {            //the time complexity is O(26)
             System.out.println("Doesn't contain all alphabets a-z");
             return;
         }
-
         String alphabet="abcdefghijklmnopqrstuvwxyz";
         for(int index=0;index<alphabet.length();index+=1)
         {
@@ -17,7 +16,6 @@ public class Assignment2 {            //the time complexity is O(26)
             if(input.indexOf(currentChar)!=-1) {
                 count++;
                 continue;
-
             }
             else
                 break;

@@ -53,7 +53,6 @@ public class VampireNumber {
                 }
             }
             number=number+1;
-
         }
     }
 
@@ -70,7 +69,6 @@ public class VampireNumber {
             array[i] = temp.charAt(i) - '0';
         }
         return array;
-
     }
 
 }

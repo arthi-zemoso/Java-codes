@@ -15,7 +15,7 @@ public class Assignment1 {
             input= keyboard.nextLine();
             if (input.equals("exit"))
                 break;
-            File userDirectory = new File("/home/arthia/IdeaProjects/Core Java/src/chapter8");
+            File userDirectory = new File("/home/arthia/IdeaProjects/Core Java/src/chapter7");
             File Filelist[] = userDirectory.listFiles();
             Pattern pattern=Pattern.compile(input);
             System.out.println("Java files are as follows");
@@ -28,7 +28,6 @@ public class Assignment1 {
                     System.out.println(input+" path is "+file.getAbsolutePath());
                     System.out.println();
                     break;
-
                 }
                 else{
                     System.out.println("file not found");

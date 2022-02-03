@@ -13,7 +13,6 @@ public class Main {
                 throw new StringIsUppercase("String is uppercase");
             if(number2%2==0)
                 throw new NumberIsEven("Number is a even number");
-
         }
         catch(Exception object)
         {

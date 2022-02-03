@@ -1,7 +1,7 @@
 package JavaAssignments.Assignment10;
 
 public class SListIterator<T>{
-    Snode<T> head;
+    Snode<T> head; //add access modifier
     public SListIterator(SList<T> list){
         this.head=list.head;
     }
